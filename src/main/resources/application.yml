@@ -12,6 +12,9 @@ spring:
         server-addr: 47.106.10.170:8848
         username: nacos
         password: nacos
+    sentinel:
+      transport:
+        dashboard: localhost:10000
 mybatis:
   config-location: classpath:/db/mybatis-config.xml
 
@@ -24,3 +27,10 @@ feign:
     config:
       default:
         loggerLevel: HEADERS
+
+#对所有信息对外暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -13,9 +13,10 @@ class VideoFeignClientTest {
 
     @Resource
     private VideoFeignClient videoFeignClient;
+
     @Test
     public void testFindByArticleId() {
-        for (int i=0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             Video video = videoFeignClient.findByArticleId(1649L);
             System.out.println(video);
         }
