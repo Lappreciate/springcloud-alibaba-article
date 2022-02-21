@@ -1,5 +1,6 @@
 package com.example.blogService.articleService.feignClient;
 
+import com.example.blogService.articleService.dto.ResponseObject;
 import com.example.blogService.articleService.entity.Video;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +18,7 @@ class VideoFeignClientTest {
     @Test
     public void testFindByArticleId() {
         for (int i = 0; i < 3; i++) {
-            Video video = videoFeignClient.findByArticleId(1649L);
+            ResponseObject<Video> video = videoFeignClient.findByArticleId(1649L);
             System.out.println(video);
         }
 

@@ -15,6 +15,15 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:10000
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 47.106.10.170:8848
+            dataId: article-service-flow-rules
+            groupId: DEFAULT_GROUP
+            ruleType: flow
+            username: nacos
+            password: nacos
 mybatis:
   config-location: classpath:/db/mybatis-config.xml
 
@@ -27,6 +36,8 @@ feign:
     config:
       default:
         loggerLevel: HEADERS
+  sentinel:
+    enabled: true
 
 #对所有信息对外暴露
 management:

@@ -16,7 +16,7 @@ class ArticleMapperTest {
 
     @Test
     public void testList() {
-        List<Article> articles = articleMapper.findByArticleId();
+        List<Article> articles = articleMapper.findByArticles();
         for (Article article : articles) {
             System.out.println(article.getTitle());
         }

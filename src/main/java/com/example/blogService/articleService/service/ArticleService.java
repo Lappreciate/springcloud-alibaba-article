@@ -1,6 +1,9 @@
 package com.example.blogService.articleService.service;
 
+import com.example.blogService.articleService.dto.ResponseObject;
 import com.example.blogService.articleService.entity.Article;
+import com.example.blogService.articleService.entity.Video;
+import com.example.blogService.articleService.feignClient.VideoFeignClient;
 import com.example.blogService.articleService.mapper.ArticleMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,7 +19,14 @@ public class ArticleService {
     @Resource
     private ArticleMapper articleMapper;
 
+    @Resource
+    private VideoFeignClient videoFeignClient;
+
     public List<Article> findArticles() {
-        return articleMapper.findByArticleId();
+        return articleMapper.findByArticles();
+    }
+
+    public ResponseObject<Video> findByArticleId(Long articleId) {
+        return videoFeignClient.findByArticleId(articleId);
     }
 }
