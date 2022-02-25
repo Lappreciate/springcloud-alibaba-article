@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: article-service # article-service-dev.yml
+    profiles: dev
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        server-addr: 47.106.10.170:8848
+        password: nacos
+        username: nacos
+        shared-configs: #增加公共id 跨应用
+          - data-id: common-${spring.application.profiles}.yml #根据环境配置动态选择
+            group: DEFAULT_GROUP
+            refresh: true
